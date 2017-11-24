@@ -7,7 +7,7 @@ class WebhookController < ApplicationController
   MAIN_REPO = 'AndBobsYourUncle/repo-follower'
   CHILD_REPO = 'AndBobsYourUncle/repo-follower-child'
   APP_ID = 6956
-  INSTALLATION_ID = 69_303
+  INSTALLATION_ID = 69_328
 
   def handle_webhook
     request.body.rewind
@@ -34,7 +34,7 @@ class WebhookController < ApplicationController
   def merge_following_pr client
     pr = client.create_pull_request(
       CHILD_REPO, 'master', 'follower-changes',
-      'Update from master repo', 'This is an automatic update from the master repo.'
+      'Update from master repo', 'This is an automatic update from the master repo :D.'
     )
 
     client.merge_pull_request CHILD_REPO, pr[:number], 'App successfully updated from master repr.'
